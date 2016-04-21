@@ -6,7 +6,6 @@
 <meta name="Description" content="">
 <meta name="Author" content="Daisy Wang">
 <title>城市空气质量查询</title>
-</head>
 <style>
 form {
 	margin: 0 0 18px;
@@ -128,7 +127,11 @@ button{
 }
 .input-warning{color:red;
 font-size:12px;}
+table{border:1px solid red;}
 </style>
+
+</head>
+
 <body>
 <div class="main">
   <form class="form-horizontal">
@@ -136,7 +139,6 @@ font-size:12px;}
       <label class="control-label" for="aqi-city-input">城市名称</label>
          <div class="controls">
           <input class="focused" id="aqi-city-input" name="city"text="text" placeholder="城市名称">
-		   <span class="input-warning" id="city-input-warning"></span>
 		 </div>
       </div>
     
@@ -144,7 +146,6 @@ font-size:12px;}
       <label class="control-label" for="aqi-value-input">空气质量指数</label>
         <div class="controls">
           <input class="focused" id="aqi-value-input" name="air" text="text" placeholder="空气质量指数">
-		  <span  class="input-warning"id="value-input-warning"></span>
 		</div>
       </div>
     
@@ -166,6 +167,6 @@ font-size:12px;}
    -->
   </table>
 </div>
-<script src="task16.js"></script>
+<script src="task.js"></script>
 </body>
 </html>
