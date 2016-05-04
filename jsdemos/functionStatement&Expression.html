@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ECMAScript是承认语句有值的，而且也同时承认“某些语句是没有值/不产生值”的。例如说，空语句就不产生值，函数声明、变量声明等等也不产生值 。</title>
+ 
+</head>
+<body>
+  <div>
+		<u> dddddd</u>
+		<b>bbbbbb</b>
+		<p id="pp">
+		<a>aaaa</a>
+		<span>wwww</span>
+		</p>
+		<h2></h2>
+		<i>iiiii</i>
+  
+  </div>
+  <script>
+  var x=true;
+	var	foo=eval(if(x) (
+		  function aa(){}
+		)else (
+		 function bb(){}
+		)
+		);
+		console.log(foo.name);//
+		//http://blog.csdn.net/aimingoo/article/details/51136511
+  </script>
+
+</body>
+</html>

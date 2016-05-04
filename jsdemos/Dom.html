@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<style>
+
+</style>
+<body >
+  <div>
+  </div>
+  <div id="one">
+  </div>
+  <div>
+   嘻嘻
+  <div>
+  哈勒
+  <div name="two">
+ 你在<b>海南</b>吗
+  </div>
+</div>
+</div>
+  <a id="alink" href="http://www.brophp.com" target="_blank" title="this is a test">test</a>
+<script>
+        var aobj=document.getElementById("alink");//通过id获得元素对象
+	/*	alert(aobj.href);//显示属性
+		
+		aobj.href="http://bbs.lampbrother.net";//改变取得的元素对象的href属性
+		
+		aobj.target="_self";  //改变target属性
+		alert(aobj.target);//_self 显示刚刚改变的属性
+		
+		aobj.title="demo demo demo";//改变title属性
+		alert(aobj.title);//demo demo demo
+		
+		aobj.style="font-style:Italic";//添加HTML属性
+		alert(aobj.style);//[object CSSStyleDeclaration]
+		alert(aobj.style.fontStyle)//italic  显示刚刚添加的属性 ，这才是正确的写法
+		
+		aobj.title="";//删除属性
+		alert(aobj.title);//""删除成功
+		
+		alert(delete aobj.target);
+		alert(aobj.target);//_self 删除无效
+		
+		 alert(delete aobj.style)//true
+		 alert(aobj.style)//[object CSSStyleDeclaration]
+		 
+		 alert(delete aobj.style.fontStyle);//true 但是斜体不会消失，所以此种删除对HTML元素操作有效的元素，没有用
+		 alert(aobj.style.fontStyle);//italic 删除无效
+		
+     	aobj.hello="mmmmm";//是对象就可以添加属性，但是非HTML属性的属性，只能当一个临时容器，对元素的操作没有作用。
+	 	alert(aobj.hello);//mmmmm
+		
+	 	delete aobj.hello;//只对用户定义的非HTML原始有效属性的额外属性，有效
+	 	alert(aobj.hello);//undefined;
+	*/
+	     var div=document.getElementsByName("two");//获取的是数组
+		 
+		 div[0].style="text-align:center";
+		//alert(div[0].style.textAlign);
+      // div[0].innerText="<b>brother</b>";//所以内容都是文本
+	   // alert(div[0].innerText);//<b>brother</b>  取的时候取的是纯文本
+	    //alert(div[0].innerHTML);//&lt;b&gt;brother&lt;/b&gt;  取的是带HTML标签的内容，就是当前元素的所有子元素
+		//div[0].textContent="sd<b>brother</b>sd";
+		//alert(div[0].textContent);
+		alert(div[0].value);
+		//判断是不是ie浏览器,写一个兼容ff的函数
+		/*function ffie(obj,value){
+		if(document.all){
+		   if(typeof(value)=="undefined"){
+		       return obj.innerText;
+		   }else{obj.innerText=value;}
+		   
+		 }else{
+		      if(typeof(value)=="undefined"){
+			    return obj.textContent;
+			  }else{
+			     obj.textContent=value;
+			  }
+		 }
+		}
+		ffie(div[0],"haha");
+		alert(div[0].innerHTML);
+		*/
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

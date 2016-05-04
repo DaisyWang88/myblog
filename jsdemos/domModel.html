@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>结点树遍历</title>
+ 
+</head>
+<body>
+  <div>
+		<u> dddddd</u>
+		<b>bbbbbb</b>
+		<p id="pp">
+		<a>aaaa</a>
+		<span>wwww</span>
+		</p>
+		<h2></h2>
+		<i>iiiii</i>
+  
+  </div>
+  <script>
+		var pobj=document.getElementById("pp");
+			alert(pobj.parentNode.nodeType);//找父节点类型
+			alert(pobj.parentNode.tagName);//DIV，这里的parentNode刚好是元素结点，可以用元素对象的tagName属性取得标签名
+			alert(pobj.parentNode.nodeName);//DIV
+			alert(pobj.childNodes.length);//5 空格算一个文本，就算一个结点
+			alert(pobj.childNodes[0].nodeName);//找第一个子节点，是空格算成文本
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

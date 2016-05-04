@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>document.all()</title>
+<style>
+body{
+border:10px solid red;
+width:100px;
+height:100px;
+}
+.test{
+   width:500px;
+   height:300px;
+   }
+.demo{
+   border:5px solid blue;
+   font-size:4cm;
+   background:red;
+}
+
+</style>
+</head>
+
+<body>
+<!--<input id="username" type="checkbox" name="username" value="zhangsan">-->
+<textarea id="text" style="width:220px">hello everyone</textarea>
+
+<script>
+   var obj=document.getElementById("text")
+       obj.className="test";
+	   obj.className+=" demo"
+	  obj.className=""//设为空，就是删除了
+
+// alert(document.getElementById("text").value);
+  // alert(document.all["div"].tagName);
+ // alert(document.getElementById("text").style.width);
+</script>
+</body>
+</html>
