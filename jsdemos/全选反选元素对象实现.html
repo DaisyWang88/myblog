@@ -1,50 +1,44 @@
 <!Doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>全选反选全不选，利用元素的对象this实现</title>
-</head>
-<body>
-
-
-<script>
-    document.write("<ul>");
-	for(var i=0;i<20;i++){
-	document.write("<li>");
-	//php:name名为一个数组，通过document.getElementsByName("")获取的对象就是一个数组，不然只传最后一个值
-	//js里面不管怎样写，不写成数组形式，也都是数组
-	document.write('<input type="checkbox" name="ids[]" value='+i+">aaaaaaaa");
-	document.write("</li>");
-	
-	}
-	
-	document.write("</ul>");
-</script>
-	<label for="aa"><input  id="aa"type="radio" onclick="sall(this)" name="ra">全选
-	<label for="bb"><input  id="bb" type="radio" onclick="fall()" name="ra">反选</label>
-	<label for="cc"><input id="cc" type="radio" onclick="nall(this)" name="ra">全不选</lable>
-<script>
-		var cnames=document.getElementsByName("ids[]");
-		alert(cnames.length);
-		function sall(obj){
-		for(var i=0;i<cnames.length;i++)
-		    cnames[i].checked=obj.checked;
-		
-		}
-		function fall(){
-		for(var i=0;i<cnames.length;i++){
-		    if(cnames[i].checked==true )
-			cnames[i].checked=false;
-			else cnames[i].checked=true;
-		}
-		}
-		function nall(obj){
-		  for(var i=0;i<cnames.length;i++)
-		   cnames[i].checked=!obj.checked;//相当于没有这个属性，就是默认值，没有选
-		 }
-
-</script>
-
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>全选反选全不选，利用元素的对象this实现</title>
+	</head>
+	<body>
+		<script>
+		    document.write("<ul>");
+			for(var i = 0; i < 20; i++){
+				document.write("<li>");
+				//php:name名为一个数组，通过document.getElementsByName("")获取的对象就是一个数组，不然只传最后一个值
+				//js里面不管怎样写，不写成数组形式，也都是数组
+				document.write('<input type="checkbox" name="ids[]" value='+i+">aaaaaaaa");
+				document.write("</li>");
+			}
+			document.write("</ul>");
+		</script>
+			<label for="aa"><input  id="aa"type="radio" onclick="sall(this)" name="ra">全选
+			<label for="bb"><input  id="bb" type="radio" onclick="fall()" name="ra">反选</label>
+			<label for="cc"><input id="cc" type="radio" onclick="nall(this)" name="ra">全不选</lable>
+		<script>
+				var cnames = document.getElementsByName("ids[]");
+				alert(cnames.length);
+				function sall(obj){
+				for (var i = 0; i < cnames.length; i++)
+				    cnames[i].checked = obj.checked;
+				}
+				function fall(){
+					for (var i = 0; i < cnames.length; i++){
+					    if (cnames[i].checked == true )
+						cnames[i].checked = false;
+						else cnames[i].checked = true;
+					}
+				}
+				function nall(obj){
+					for(var i=0;i<cnames.length;i++) {
+						 cnames[i].checked=!obj.checked;//相当于没有这个属性，就是默认值，没有选
+					}
+				}
+		</script>
+    </body>
 
 </html>
