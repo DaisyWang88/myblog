@@ -4,16 +4,16 @@
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
    <title>js正则表达式的用法</title>
    <script>
-     function testRegex(){
-	      var str="mom and dad and baby"
+   	function testRegex(){
+	      var str = "mom and dad and baby"
 		  
-		 var ri=/^(\d+)[a-z]+/;
-		 var r2=new RegExp("\\d+","g");
-		 var pattern=/mom (and dad (and baby)??)??/i;//空格也要匹配
-		 var pattern1=/^mom.+ba&/i;//要匹配全部的要用^ $
+		 var ri = /^(\d+)[a-z]+/;
+		 var r2 = new RegExp("\\d+","g");
+		 var pattern = /mom (and dad (and baby)??)??/i;//空格也要匹配
+		 var pattern1 = /^mom.+ba&/i;//要匹配全部的要用^ $
 	
-		 var m=/\d+([a-z]+)/g;
-		 var t="33ff55hh77jj88pp";
+		 var m = /\d+([a-z]+)/g;
+		 var t = "33ff55hh77jj88pp";
 		/* match=pattern.exec(str);
 		 alert(match.input);
 		 alert(match.index);
@@ -30,17 +30,17 @@
 		  alert(match[2]);
 		  */
 		alert(t.match(m));
-		 alert(t.match(m)[2]);
-		 alert(t.search(m));
-		 alert(t.split(m));
-		 alert(t.replace(/\d+/,"**"));
+		alert(t.match(m)[2]);
+		alert(t.search(m));
+		alert(t.split(m));
+		alert(t.replace(/\d+/,"**"));
 		
 		
 		 
-		 }
+	}
    </script>
 </head>
 <body>
-    <input type=button value=测试正则 onclick="testRegex();"/>
+    <input type=button value="测试正则" onclick="testRegex();"/>
 </body>
 </html>
