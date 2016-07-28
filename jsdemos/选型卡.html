@@ -1,122 +1,118 @@
 <!Doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>选项卡,做选项卡一般要用ajax，现在先不用</title>
-  <style>
-      #card{
-	     width:300px;
-		 height:200px;
-	  }
-	  #tit{
-	     width:100%;
-		 height:25px;
-		line-height:25px;  
-	  }
-	  #tit h3{
-	    margin:0px;/*先清除marginpadding*/
-		padding:0px;
-		width:80px;
-		background:#ccc;
-		float:left;
-		line-height:21px;
-		text-align:center;
-		border:2px solid white;
-		font-size:12px;
-		color:white;
-	  }
-	  #content {
-		width:100%;
-		height:175px;
-		background:#888;
-		color:white;	
-	  }
-	  #content div{
-	     display:none;/*隐藏*/
-	  }
-	  #content .one{
-	     display:inline-block;/*只第一个显示，不能设置为block,因为其前后带有换行符，会跳出固定宽高的父元素*/
-	  }
-      #tit .titin{
-	    border:2px solid #888;
-		background:#888;  
-	  }
-	  /*以上设置的都是默认效果*/
-  </style>
-</head>
-<body>
-<div id="card">
-   <div id="tit">
-        <h3 onmouseover="show(0)" class="titin">第一项</h3>
-	    <h3 onmouseover="show(1)">第二项</h3>
-		<h3 onmouseover="show(2)">第三项</h3>  
-   </div>
-   <div id="content">
-        <div class="one">
-			<ul>
-				<li>aaaaa</li>
-				<li>aaaa</li>
-				<li>aaaa</li>
-				<li>aaaa</li>
-				<li>aaaa</li>
-			</ul>		
-		</div>
-         <div>
-			<ul>
-				<li>bbbb</li>
-				<li>bbbb</li>
-				<li>bbbb</li>
-				<li>bbbb</li>
-				<li>bbbb</li>
-			</ul>			
-		</div>
-		 <div>
-			<ul>
-				<li>cccc</li>
-				<li>cccc</li>
-				<li>cccc</li>
-				<li>cccc</li>
-				<li>cccc</li>
-			</ul>			
-		</div>
-  </div>
-</div>
-<script>
- var h3os=document.getElementsByTagName("h3");
-   var cdivs=document.getElementById("content").getElementsByTagName("div");
-  
-     function show(num){
-				for(var i=0;i<h3os.length;i++){
-				if(i==num){
-				h3os[i].className="titin";
-				//cdivs[i].style.dispaly="inline-bock";
-				cdivs[i].className="one";
-				
-					}else{
-					h3os[i].className="";//之前设置了的class属性清空，没有class属性的的就没有
-					cdivs[i].className="";
-					}
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡,做选项卡一般要用ajax，现在先不用</title>
+		<style>
+		      	#card{
+					width:300px;
+				 	height:200px;
 				}
-	 }
-	
-	 //第二种获取元素对象的方式
-	/* var pro="";
-	 for(pro in document){
-	     document.write("document."+pro+"="+document[pro]+"<br>");
-	 //可以看到document里面的所有对象及相应的值
-	 }
-	 */
-	/* var all=[];
-	 all=document.all;
-	 for(var i=0;i<all.length;i++){
-	      document.write(all[i]+"<br>");
-	 
-	 }
-	 */
-</script>
-	
-
-
-</body>
+			  	#tit{
+				    width:100%;
+					height:25px;
+					line-height:25px;  
+			  	}
+			  	#tit h3{
+				    margin:0px;/*先清除marginpadding*/
+					padding:0px;
+					width:80px;
+					background:#ccc;
+					float:left;
+					line-height:21px;
+					text-align:center;
+					border:2px solid white;
+					font-size:12px;
+					color:white;
+			  	}
+			  	#content {
+					width:100%;
+					height:175px;
+					background:#888;
+					color:white;	
+			  	}
+			  	#content div{
+			     	display:none;/*隐藏*/
+			  	}
+				#content .one{
+			     	display:inline-block;/*只第一个显示，不能设置为block,因为其前后带有换行符，会跳出固定宽高的父元素*/
+			  	}
+		      	#tit .titin{
+				    border:2px solid #888;
+					background:#888;  
+			  	}
+			  /*以上设置的都是默认效果*/
+		</style>
+	</head>
+	<body>
+	<div id="card">
+	   <div id="tit">
+	        <h3 onmouseover="show(0)" class="titin">第一项</h3>
+		    <h3 onmouseover="show(1)">第二项</h3>
+			<h3 onmouseover="show(2)">第三项</h3>  
+	   </div>
+	   <div id="content">
+	        <div class="one">
+				<ul>
+					<li>aaaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+					<li>aaaa</li>
+				</ul>		
+			</div>
+	         <div>
+				<ul>
+					<li>bbbb</li>
+					<li>bbbb</li>
+					<li>bbbb</li>
+					<li>bbbb</li>
+					<li>bbbb</li>
+				</ul>			
+			</div>
+			 <div>
+				<ul>
+					<li>cccc</li>
+					<li>cccc</li>
+					<li>cccc</li>
+					<li>cccc</li>
+					<li>cccc</li>
+				</ul>			
+			</div>
+	  </div>
+	</div>
+	<script>
+		var h3os = document.getElementsByTagName("h3");
+	   	var cdivs = document.getElementById("content").getElementsByTagName("div");
+	  
+	    function show(num){
+			for(var i = 0; i < h3os.length; i++){
+				if(i == num){
+					h3os[i].className = "titin";
+					//cdivs[i].style.dispaly = "inline-bock";
+					cdivs[i].className = "one";
+						
+				}else{
+					h3os[i].className = "";//之前设置了的class属性清空，没有class属性的的就没有
+					cdivs[i].className =  "";
+				}
+			}
+		}
+		
+		 //第二种获取元素对象的方式
+		/* var pro = "";
+		 for(pro in document){
+		     document.write("document." + pro + "=" + document[pro] + "<br>");
+		 //可以看到document里面的所有对象及相应的值
+		 }
+		 */
+		/* var all = [];
+		 all = document.all;
+		 for(var i = 0; i < all.length; i++){
+		 	document.write(all[i] + "<br>");
+		 }
+		 */
+	</script>
+	</body>
 
 </html>
