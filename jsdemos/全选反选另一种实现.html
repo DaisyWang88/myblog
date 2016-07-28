@@ -7,39 +7,41 @@
 <body>
 
 
-<script>
-    document.write("<ul>");
-	for(var i=0;i<20;i++){
-	document.write("<li>");
-	//php:name名为一个数组，通过document.getElementsByName("")获取的对象就是一个数组，不然只传最后一个值
-	//js里面不管怎样写，不写成数组形式，也都是数组
-	document.write('<input type="checkbox" name="ids[]" value='+i+">aaaaaaaa");
-	document.write("</li>");
-	}
-	document.write("</ul>");
-</script>
+	<script>
+	    	document.write("<ul>");
+		for (var i = 0; i < 20; i++) {
+			document.write("<li>");
+			//php:name名为一个数组，通过document.getElementsByName("")获取的对象就是一个数组，不然只传最后一个值
+			//js里面不管怎样写，不写成数组形式，也都是数组
+			document.write('<input type="checkbox" name="ids[]" value=' + i + ">aaaaaaaa");
+			document.write("</li>");
+		}
+		document.write("</ul>");
+	</script>
 	<input type="radio" onclick="sall()" name="ra">全选
 	<input type="radio" onclick="fall()" name="ra">反选
 	<input type="radio" onclick="nall()" name="ra">全不选
-<script>
-		var cnames=document.getElementsByName("ids[]");
+	<script>
+		var cnames = document.getElementsByName("ids[]");
 		alert(cnames.length);
 		function sall(){
-		for(var i=0;i<cnames.length;i++)
-		    cnames[i].checked="true";
-		
+			for (var i = 0; i < cnames.length; i++) {
+				cnames[i].checked = "true";
+			}
 		}
 		function fall(){
-		for(var i=0;i<cnames.length;i++){
-		    if(cnames[i].checked==true )
-			cnames[i].checked=false;
-			else cnames[i].checked=true;
-		}
+			for (var i = 0; i < cnames.length; i++){
+			    	if(cnames[i].checked == true ) {
+					cnames[i].checked = false;
+					else cnames[i].checked = true;
+				}
+			}
 		}
 		function nall(){
-		  for(var i=0;i<cnames.length;i++)
-		    cnames[i].checked="";//相当于没有这个属性，就是默认值，没有选
-		 }
+			  for (var i = 0; i < cnames.length; i++) {
+			  	 cnames[i].checked = "";//相当于没有这个属性，就是默认值，没有选
+			  }
+		}
 
 </script>
 
