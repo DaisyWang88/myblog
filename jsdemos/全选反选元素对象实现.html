@@ -11,7 +11,7 @@
 				document.write("<li>");
 				//php:name名为一个数组，通过document.getElementsByName("")获取的对象就是一个数组，不然只传最后一个值
 				//js里面不管怎样写，不写成数组形式，也都是数组
-				document.write('<input type="checkbox" name="ids[]" value='+i+">aaaaaaaa");
+				document.write('<input type="checkbox" name="ids[]" value=' + i + ">aaaaaaaa");
 				document.write("</li>");
 			}
 			document.write("</ul>");
@@ -34,9 +34,9 @@
 					}
 				}
 				function nall(obj){
-					for(var i=0;i<cnames.length;i++) {
-						 cnames[i].checked=!obj.checked;//相当于没有这个属性，就是默认值，没有选
-					}
+					for(var i = 0; i < cnames.length; i++) {
+						 cnames[i].checked = !obj.checked;//相当于没有这个属性，就是默认值，没有选
+					} 
 				}
 		</script>
     </body>
