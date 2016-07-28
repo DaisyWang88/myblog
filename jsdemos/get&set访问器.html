@@ -1,129 +1,115 @@
 <!Doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>get/set访问器标准实现</title>
+	<head>
+		<meta charset="utf-8">
+		<title>get/set访问器标准实现</title>
  
-</head>
-<body>
+	</head>
+	<body>
 
-  <script>
-   /* function Foo(val){
-	   this._value=val;//这里为什么不写成这样  this._value=val; 也行
-	  }
-	  Foo.prototype={
-		// set value(val){//注意方法名和属性名相同，在prototype里定义了value属性
-		//   this._value=val;
-		// },
-		
-		 get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
-		   return this._value;
-		 }
+  	<script>
+	     /* function Foo(val){
+		   this._value = val;//这里为什么不写成这样  this._value=val; 也行
+		}
+		  Foo.prototype = {
+			// set value(val){//注意方法名和属性名相同，在prototype里定义了value属性
+			//   this._value=val;
+			// },
+			
+			 get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
+			   return this._value;
+			 }
+			 
+		  }; 
+		  var obj=new Foo("hello");
+		  alert(obj.value);//hello
+		  obj.value="yehoo";//只定义了get 特性，因此只能读不能写
+		  alert(obj.value);//hello
+		*/  
+		 // 如果构造函数里面this._value 去掉下划线，在prototype里面的value属性，定义了get 特性。依然可以控制value属性的读写
+		 //也就是说访问属性时，会调用get方法，先在对象本身寻找，如果没有，再到prototype寻找，如果都没有才算没有定义，默认的既可读又可写
+		  
+		function Foo(val){
+			this.value = val;//在原型里面只定义了value的get特性，因此这里写入失效
+		}
+		Foo.prototype = {
+			// set value(val){//注意方法名和属性名相同，在prototype里定义了value属性的set特性
+			// 	this._value = val;
+			// },
+			
+			value:"hah",//即使手动写入value值，由于get方法返回的是this._value,因此也不能正确读取value:"hah"
+			 
+			//只要声明了get pro (){}和set pro (){}属性就都能读能写，但是如果函数定义错误，依然不能按要求访问到正确的属性值
+			
+			get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
+				return this.value;
+			}
+		}; 
+		var obj = new Foo("hello");//"hello"没有写入成功
+		alert(obj.value);//undefined  读取失效  因为只要obj.value就会调用get ，而get返回的是this._value,没有这个值，因此undefined
+		obj.value = "yehoo";//只定义了get 特性，因此只能读不能写，写入失效
+		alert(obj.value);//undefined
+		  
+		/* function Foo(val){
+		   	this.value = val;
+		  }
+		  Foo.prototype = {
+			  set value(val){//注意方法名和属性名相同，在prototype里定义了value属性的set特性
+			  	this._value = val;
+		          },
+			
+			 //value:"hah",//即使手动写入value值，由于get方法返回的是this._value,因此也不能正确读取value:"hah"
+			 //只要声明了get pro (){}和set pro (){}属性就都能读能写，但是如果函数定义错误，依然不能按要求访问到正确的属性值
+			
+		        get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
+				return this._value;
+		        }
+			 
+		  }; 
+		  var obj=new Foo("hello");
+		  alert(obj.value);//undefined  可读
+		  obj.value="yehoo";//只定义了get 特性，因此只能读不能写，写入失效
+		  alert(obj.value);//undefined
 		 
-	  }; 
-	  var obj=new Foo("hello");
-	  alert(obj.value);//hello
-	  obj.value="yehoo";//只定义了get 特性，因此只能读不能写
-	  alert(obj.value);//hello
-	*/  
-	 // 如果构造函数里面this._value 去掉下划线，在prototype里面的value属性，定义了get 特性。依然可以控制value属性的读写
-	 //也就是说访问属性时，会调用get方法，先在对象本身寻找，如果没有，再到prototype寻找，如果都没有才算没有定义，默认的既可读又可写
-	  
-	   function Foo(val){
-	   this.value=val;//在原型里面只定义了value的get特性，因此这里写入失效
-	  }
-	  Foo.prototype={
-		//  set value(val){//注意方法名和属性名相同，在prototype里定义了value属性的set特性
-		 //   this._value=val;
-		  //},
-		
-		value:"hah",//即使手动写入value值，由于get方法返回的是this._value,因此也不能正确读取value:"hah"
+		 */ 
+		 /*
+		   function Foo(val){
+		   	this.value=val;
+		  }
+		  Foo.prototype={
+			  set value(val){
+			    	this._value=val;
+			  },
+			 get value(){
+			   	return this._value;
+			 }
+		  }; 
+		  var obj=new Foo("hello");
+		  alert(obj.value);//hello 
+		  obj.value="yehoo";
+		  alert(obj.value);//yehoo
+		  */
+		 /* function Foo(val){
+		    var value=val;
+			this.getValue=function(){
+				return value;
+			};
+			this.setValue=function (val){
+			 	value=val;
+			};
+		  }
+		  var obj=new Foo("hello");
+		  alert( obj.value);//undefined
+
+		  alert(obj.getValue());//"hello"
+		  obj.setValue("hi");
+		  alert(obj.getValue());//"hi"
+		  */
+		  
+		// var obj=new Foo("")
 		 
-		//只要声明了get pro (){}和set pro (){}属性就都能读能写，但是如果函数定义错误，依然不能按要求访问到正确的属性值
-		
-		 get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
-		   return this.value;
-		 }
-		 
-	  }; 
-	  var obj=new Foo("hello");//"hello"没有写入成功
-	  alert(obj.value);//undefined  读取失效  因为只要obj.value就会调用get ，而get返回的是this._value,没有这个值，因此undefined
-	  obj.value="yehoo";//只定义了get 特性，因此只能读不能写，写入失效
-	  alert(obj.value);//undefined
-	  
-	 
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	/*  function Foo(val){
-	   this.value=val;
-	  }
-	  Foo.prototype={
-		  set value(val){//注意方法名和属性名相同，在prototype里定义了value属性的set特性
-		    this._value=val;
-		  },
-		
-		 //value:"hah",//即使手动写入value值，由于get方法返回的是this._value,因此也不能正确读取value:"hah"
-		 
-		//只要声明了get pro (){}和set pro (){}属性就都能读能写，但是如果函数定义错误，依然不能按要求访问到正确的属性值
-		
-		 get value(){//方法名和属性名相同，在prototype里面定义了value属性和它的get 特性
-		   return this._value;
-		 }
-		 
-	  }; 
-	  var obj=new Foo("hello");
-	  alert(obj.value);//undefined  可读
-	  obj.value="yehoo";//只定义了get 特性，因此只能读不能写，写入失效
-	  alert(obj.value);//undefined
-	 
-	 */ 
-	 /*
-	   function Foo(val){
-	   this.value=val;
-	  }
-	  Foo.prototype={
-		  set value(val){
-		    this._value=val;
-		  },
-		 get value(){
-		   return this._value;
-		 }
-		 
-	  }; 
-	  var obj=new Foo("hello");
-	  alert(obj.value);//hello 
-	  obj.value="yehoo";
-	  alert(obj.value);//yehoo
-	  */
-	 /* function Foo(val){
-	    var value=val;
-		this.getValue=function(){
-		  return value;
-		};
-		this.setValue=function (val){
-		 value=val;
-		};
-		
-	  }
-	  var obj=new Foo("hello");
-	 alert( obj.value);//undefined
-	 
-	 
-	 
-	  alert(obj.getValue());//"hello"
-	  obj.setValue("hi");
-	  alert(obj.getValue());//"hi"
-	  */
-	  
-	// var obj=new Foo("")
-	 
-	//  http://kb.cnblogs.com/page/75072/
-  </script>
+		//  http://kb.cnblogs.com/page/75072/
+	</script>
 
 </body>
 </html>
