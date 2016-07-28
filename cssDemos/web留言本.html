@@ -1,45 +1,45 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>Document</title>
- </head>
- <body>
- <p id="msg"></p>
- <textarea id="memo" cols="60" rows="10"></textarea><br/>
-  <input type="button" value="追加数据" onclick="saveStorage('memo')">
-  <input type="button" value="删除数据" onclick="clearStorage()">
+	<head>
+  		<meta charset="UTF-8">
+  		<meta name="Generator" content="EditPlus®">
+  		<meta name="Author" content="">
+  		<meta name="Keywords" content="">
+  		<meta name="Description" content="">
+  		<title>Document</title>
+ 	</head>
+ 	<body>
+ 		<p id="msg"></p>
+ 		<textarea id="memo" cols="60" rows="10"></textarea><br/>
+  		<input type="button" value="追加数据" onclick="saveStorage('memo')">
+  		<input type="button" value="删除数据" onclick="clearStorage()">
 
-  <script>
- function saveStorage(id){
- var data=document.getElementById(id).value;
- var time=new Date().getTime();
- localStorage.setItem(time,data);
- alert("数据已存储");
- loadStorage("msg");
- }
- function loadStorage(id){
- var result="<table border='1'>";
- for(var i=0;i<localStorage.length;i++){
-    var key=localStorage.key(i);
-	var value=localStorage.getItem(key);
-	var date=new Date();
-	date.setTime(key);
-     result+="<tr><td>"+value+"</td><td>"+date+"</td></tr>";
-	}
-	result+="</table>";
-	var target=document.getElementById(id);
-	target.innerHTML=result;
- }
- function clearStorage(){
- localStorage.clear();
- alert("数据已删除");
- loadStorage('msg');
- }
-  </script>
+  		<script>
+			 function saveStorage(id){
+				 var data = document.getElementById(id).value;
+				 var time = new Date().getTime();
+				 localStorage.setItem(time,data);
+				 alert("数据已存储");
+				 loadStorage("msg");
+			 }
+			 function loadStorage(id){
+				 var result = "<table border='1'>";
+				 for(var i = 0; i < localStorage.length; i++){
+				    var key = localStorage.key(i);
+					var value = localStorage.getItem(key);
+					var date = new Date();
+					date.setTime(key);
+				    result += "<tr><td>" + value + "</td><td>" + date + "</td></tr>";
+				}
+				result += "</table>";
+				var target = document.getElementById(id);
+				target.innerHTML = result;
+			 }
+			 function clearStorage(){
+				 localStorage.clear();
+				 alert("数据已删除");
+				 loadStorage('msg');
+			 }
+  		</script>
  </body>
 </html>
