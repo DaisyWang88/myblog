@@ -14,19 +14,12 @@
 	 2.使用事务处理
    -->
    <script>
-      var db=openDatabase("mydb","1.0","test  db",1024*100);//数据库名，版本，数据库类型，数据库大小
-   db.transaction(function(tx){
-      tx.executeSql("");
-	  transation.executeSql("",[],function(),function());//执行数据库的语句，SQL语句中使用到的参数数组，作为成功执行函数时，调用的回调函数，失败时回调函数
-//当执行查询操作时，如何查询到结果的数据集中，依次把数据取到页面上来，row属性 row.lenght rows[index]，依次把数据每一条取上来
-
-})
-
-
-
-
-
-                                    //使用transaction方法执行事务处理，防止在使用数据库进行访问、执行有关操作时的干扰。
+   	var db = openDatabase("mydb","1.0","test  db",1024*100);//数据库名，版本，数据库类型，数据库大小
+   	db.transaction(function(tx){
+        	tx.executeSql("");
+        	//当执行查询操作时，如何查询到结果的数据集中，依次把数据取到页面上来，row属性 row.lenght rows[index]，依次把数据每一条取上来
+		transation.executeSql("",[],function(),function());//执行数据库的语句，SQL语句中使用到的参数数组，作为成功执行函数时，调用的回调函数，失败时回调函数
+	});
    </script>
  </body>
 </html>
