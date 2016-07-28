@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>dom获取元素对象的第二种方法</title>
-  <style>  
+	<head>
+		<meta charset="utf-8">
+		<title>dom获取元素对象的第二种方法</title>
+	</head>
+	<body>
+	    	<form name="frm1">
+			<input type="text" name="username" value="zhangsan"><br>
+			
+		</form>
+		<form name="frm2">
+			<input id="one" type="text" name="username" value="lisi"><br>
+			
+		</form>
+		<form name="frm3">
+			<input type="text" name="username" value="admin"><br>
+			
+		</form>
+		<script>
+		     	//通过数组获取元素对象有7种方式
+			 alert(document.forms[1].username.value);//lisi
+			 alert(document.forms[1].input.value);//此方法错误！！
+			 alert(document.forms["frm2"].username.value);//lisi
+			 alert(document.forms.item(1).username.value);//lisi
+					alert(document.forms.item("frm").username.value);//????此处一直输出zhangsan，不知道为什么？？？
+			 alert(document.forms.frm2.username.value);//lisi
+			 alert(document.frm2.username.value);//lisi
+			 alert(document["frm2"].username.value);//lisi
 
-  </style>
-</head>
-<body>
-
-    <form name="frm1">
-		<input type="text" name="username" value="zhangsan"><br>
-		
-	</form>
-	<form name="frm2">
-		<input id="one" type="text" name="username" value="lisi"><br>
-		
-	</form>
-	<form name="frm3">
-		<input type="text" name="username" value="admin"><br>
-		
-	</form>
-<script>
-     //通过数组获取元素对象有7种方式
-	 alert(document.forms[1].username.value);//lisi
-	 alert(document.forms[1].input.value);//此方法错误！！
-	 alert(document.forms["frm2"].username.value);//lisi
-	 alert(document.forms.item(1).username.value);//lisi
-			alert(document.forms.item("frm").username.value);//????此处一直输出zhangsan，不知道为什么？？？
-	 alert(document.forms.frm2.username.value);//lisi
-	 alert(document.frm2.username.value);//lisi
-	 alert(document["frm2"].username.value);//lisi
-
-</script>
+		</script>
 
 
 
-<script>
-	//枚举document里面所以属性
-	/* var pro="";
-	 for(pro in document){
-	     document.write("document."+pro+"="+document[pro]+"<br>");
-	 //可以看到document里面的所有对象及相应的值
-	 }
-	*/
-	  //第二种获取元素对象的方式
-	/*var all=[];
-	all=document.all;
-     alert(all.length);
-	 for(var i=0;i<all.length;i++){
-	     alert(i);
-	      document.write("document.all["+i+"]="+all[i].tagName+"\r\n");
-		  //这样每次都加了哟个<br>标签，不断加document.length会不断增加会出现死循环
-	 }	
-	 */
-	 
-	 
-	 
-</script>	
-</body>
+		<script>
+			//枚举document里面所以属性
+			/* var pro = "";
+			 for(pro in document){
+			     document.write("document." + pro + "=" + document[pro] + "<br>");
+			 //可以看到document里面的所有对象及相应的值
+			 }
+			*/
+			 //第二种获取元素对象的方式
+			/*var all = [];
+			all = document.all;
+		     	alert(all.length);
+			for(var i = 0; i < all.length; i++){
+			     alert(i);
+			     document.write("document.all[" + i + "]=" + all[i].tagName + "\r\n");
+				  //这样每次都加了哟个<br>标签，不断加document.length会不断增加会出现死循环
+			}	
+			*/
+			 
+			 
+			 
+		</script>	
+   	</body>
 </html>
 
 
